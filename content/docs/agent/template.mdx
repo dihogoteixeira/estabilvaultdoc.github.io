@@ -311,7 +311,7 @@ template {
 }
 
 template {
-  contents     = `{{ with secret \"secret/my-secret\" }}{{ .Data.data.foo }}{{ end }}`
+  contents     = {{ with secret \"secret/my-secret\" }}{{ .Data.data.foo }}{{ end }}
   destination  = "/tmp/agent/render-content.txt"
 }
 ```
