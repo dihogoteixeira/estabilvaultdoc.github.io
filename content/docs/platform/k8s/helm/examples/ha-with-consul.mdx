@@ -37,7 +37,7 @@ server:
         - labelSelector:
             matchLabels:
               app: {{ template "vault.name" . }}
-              release: "{{ .Release.Name }}"
+              release: null
               component: server
           topologyKey: kubernetes.io/hostname
 

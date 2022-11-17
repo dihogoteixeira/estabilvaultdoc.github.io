@@ -214,7 +214,7 @@ and consider if they're appropriate for your deployment.
         - labelSelector:
             matchLabels:
               app.kubernetes.io/name: agent-injector
-              app.kubernetes.io/instance: "{{ .Release.Name }}"
+              app.kubernetes.io/instance: null
               component: webhook
           topologyKey: kubernetes.io/hostname
     ```
@@ -578,7 +578,7 @@ and consider if they're appropriate for your deployment.
       - labelSelector:
         matchLabels:
           app.kubernetes.io/name: null
-          app.kubernetes.io/instance: "{{ .Release.Name }}"
+          app.kubernetes.io/instance: null
           component: server
         topologyKey: kubernetes.io/hostname
   ```
