@@ -124,9 +124,6 @@ and consider if they're appropriate for your deployment.
 
       ```yaml
       runAsNonRoot: true
-      runAsGroup: {{ .Values.injector.gid default 1000 }}
-      runAsUser: {{ .Values.injector.uid default 100 }}
-      fsGroup: {{ .Values.injector.gid default 1000 }}
       ```
 
     - `container` (`dictionary: {}`) - Defines the securityContext for the injector container, as YAML or a YAML-formatted multi-line templated string. Default if not specified:
@@ -887,9 +884,6 @@ and consider if they're appropriate for your deployment.
 
       ```yaml
       runAsNonRoot: true
-      runAsGroup: {{ .Values.server.gid default 1000 }}
-      runAsUser: {{ .Values.server.uid default 100 }}
-      fsGroup: {{ .Values.server.gid default 1000 }}
       ```
 
       Defaults to empty if not specified and `global.openshift=true`.
