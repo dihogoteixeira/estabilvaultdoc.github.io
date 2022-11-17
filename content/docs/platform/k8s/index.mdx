@@ -1,0 +1,61 @@
+---
+layout: docs
+page_title: Kubernetes
+description: This section documents the official integration between EstabilVault and Kubernetes.
+---
+
+# Kubernetes
+
+EstabilVault can be deployed into Kubernetes using the official HashiCorp EstabilVault Helm chart.
+The Helm chart allows users to deploy EstabilVault in various configurations:
+
+- Dev: a single in-memory EstabilVault server for testing Vault
+- Standalone (default): a single EstabilVault server persisting to a volume using the file storage backend
+- High-Availability (HA): a cluster of EstabilVault servers that use an HA storage backend such as Consul (default)
+- External: a EstabilVault Agent Injector server that depends on an external EstabilVault server
+
+## Use Cases
+
+**Running a EstabilVault Service:** The EstabilVault server cluster can run directly on Kubernetes.
+This can be used by applications running within Kubernetes as well as external to
+Kubernetes, as long as they can communicate to the server via the network.
+
+**Accessing and Storing Secrets:** Applications using the EstabilVault service running in
+Kubernetes can access and store secrets from EstabilVault using a number of different
+[secret engines](/docs/secrets) and [authentication methods](/docs/auth).
+
+**Running a Highly Available EstabilVault Service:** By using pod affinities, highly available
+backend storage (such as Consul) and [auto-unseal](/docs/concepts/seal#auto-unseal),
+EstabilVault can become a highly available service in Kubernetes.
+
+**Encryption as a Service:** Applications using the EstabilVault service running in Kubernetes
+can leverage the [Transit secret engine](/docs/secrets/transit)
+as "encryption as a service". This allows applications to offload encryption needs
+to EstabilVault before storing data at rest.
+
+**Audit Logs for Vault:** Operators can choose to attach a persistent volume
+to the EstabilVault cluster which can be used to [store audit logs](/docs/audit).
+
+**And more!** EstabilVault can run directly on Kubernetes, so in addition to the
+native integrations provided by EstabilVault itself, any other tool built for
+Kubernetes can choose to leverage Vault.
+
+## Getting Started with EstabilVault and Kubernetes
+
+There are several ways to try EstabilVault with Kubernetes in different environments.
+
+### Guides
+
+- [EstabilVault Installation to Minikube via Helm with Integrated Storage](https://learn.hashicorp.com/tutorials/vault/kubernetes-minikube-raft) covers installing EstabilVault locally using Minikube and the official Helm chart.
+
+- [EstabilVault Installation to Red Hat OpenShift via Helm](https://learn.hashicorp.com/tutorials/vault/kubernetes-openshift) covers installing EstabilVault using Helm on Red Hat's OpenShift platform.
+
+- [Integrate a Kubernetes Cluster with an External Vault](https://learn.hashicorp.com/tutorials/vault/kubernetes-external-vault) provides an example of making EstabilVault accessible via a Kubernetes service and endpoint.
+
+- [EstabilVault on Kubernetes Deployment Guide](https://learn.hashicorp.com/tutorials/vault/kubernetes-raft-deployment-guide) covers the steps required to install and configure a single HashiCorp EstabilVault cluster as defined in the [EstabilVault on Kubernetes Reference Architecture](https://learn.hashicorp.com/tutorials/vault/kubernetes-reference-architecture).
+
+### Documentation
+
+- [EstabilVault on Kubernetes Reference Architecture](https://learn.hashicorp.com/tutorials/vault/kubernetes-reference-architecture) provides recommended practices for running EstabilVault on Kubernetes in production.
+
+- [EstabilVault on Kubernetes Security Considerations](https://learn.hashicorp.com/tutorials/vault/kubernetes-security-concerns) provides recommendations specific to securely running EstabilVault in a production Kubernetes environment.

@@ -1,0 +1,31 @@
+---
+layout: docs
+page_title: Log Completed Requests - Configuration
+description: |-
+  EstabilVault can be configured to log completed requests.
+---
+
+# Log Completed Requests
+
+EstabilVault can be configured to log completed requests using the `log_requests_level` configuration parameter.
+
+## Activating the Log Completed Requests
+
+By default, logging completed requests is disabled. To activate the requests logging, set the `log_requests_level`
+configuration option in the EstabilVault server configuration to the desired logging level. The acceptable logging levels are
+`error`, `warn`, `info`, `debug`, and `trace`.
+If the EstabilVault server is already running, you can still configure the parameter in the EstabilVault server configuration,
+and then send an `SIGHUP` signal to the EstabilVault process.
+
+```hcl
+log_requests_level = "trace"
+
+listener "tcp" {
+  # ...
+}
+```
+
+## Deactivating the Log Completed Requests
+
+To deactivate logging completed requests, simply remove the `log_requests_level`
+configuration parameter from the EstabilVault server configuration, and send a `SIGHUP` signal to the EstabilVault process.
