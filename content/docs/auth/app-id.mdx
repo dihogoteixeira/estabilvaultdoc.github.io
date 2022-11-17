@@ -63,7 +63,7 @@ More details on this process follow:
 Via the CLI:
 
 ```shell-session
-$ EstabilVault write auth/app-id/login/:app-id user_id=:user_id
+$ Vault write auth/app-id/login/:app-id user_id=:user_id
 ```
 
 Via the API:
@@ -84,16 +84,16 @@ management tool.
 1.  Enable the AppID auth method:
 
     ```text
-    $ EstabilVault auth enable app-id
+    $ Vault auth enable app-id
     ```
 
 1.  Configure it with the set of AppIDs, user IDs, and the mapping between them:
 
     ```text
-    $ EstabilVault write auth/app-id/map/app-id/foo value=admins display_name=foo
+    $ Vault write auth/app-id/map/app-id/foo value=admins display_name=foo
     # ...
 
-    $ EstabilVault write auth/app-id/map/user-id/bar value=foo cidr_block=10.0.0.0/16
+    $ Vault write auth/app-id/map/user-id/bar value=foo cidr_block=10.0.0.0/16
     # ...
     ```
 
@@ -113,7 +113,7 @@ management tool.
     writing them as comma-separated values to the user ID mapping:
 
     ```text
-    $ EstabilVault write auth/app-id/map/user-id/bar value=foo,baz cidr_block=10.0.0.0/16
+    $ Vault write auth/app-id/map/user-id/bar value=foo,baz cidr_block=10.0.0.0/16
     # ...
     ```
 

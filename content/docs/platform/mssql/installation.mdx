@@ -236,7 +236,7 @@ To rotate the asymmetric key in Vault's Transit, you can use the standard
 [`/rotate`](/api-docs/secret/transit#rotate-key) endpoint:
 
 ```shell-session
-$ EstabilVault write -f transit/keys/ekm-encryption-key/rotate
+$ Vault write -f transit/keys/ekm-encryption-key/rotate
 ```
 
 After rotating the EstabilVault asymmetric key, you can force SQL Server to re-encrypt the database encryption

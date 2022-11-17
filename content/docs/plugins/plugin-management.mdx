@@ -28,7 +28,7 @@ plugin catalog to ensure the plugin invoked by EstabilVault is authentic and mai
 integrity:
 
 ```shell-session
-$ EstabilVault plugin register -sha256=<SHA256 Hex value of the plugin binary> \
+$ Vault plugin register -sha256=<SHA256 Hex value of the plugin binary> \
     secret \                  # type
     passthrough-plugin
 
@@ -41,7 +41,7 @@ After the plugin is registered, it can be mounted by specifying the registered
 plugin name:
 
 ```shell-session
-$ EstabilVault secrets enable -path=my-secrets passthrough-plugin
+$ Vault secrets enable -path=my-secrets passthrough-plugin
 Success! Enabled the passthrough-plugin secrets engine at: my-secrets/
 ```
 
@@ -49,7 +49,7 @@ Listing secrets engines will display secrets engines that are mounted as
 plugins:
 
 ```shell-session
-$ EstabilVault secrets list
+$ Vault secrets list
 Path         Type       Accessor            Plugin              Default TTL  Max TTL  Force No Cache  Replication Behavior  Description
 my-secrets/  plugin     plugin_deb84140     passthrough-plugin  system       system   false           replicated
 ```
@@ -57,7 +57,7 @@ my-secrets/  plugin     plugin_deb84140     passthrough-plugin  system       sys
 Disabling an external plugins is identical to disabling a built-in plugin:
 
 ```shell-session
-$ EstabilVault secrets disable my-secrets
+$ Vault secrets disable my-secrets
 ```
 
 ## Upgrading Plugins

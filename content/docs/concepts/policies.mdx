@@ -565,13 +565,13 @@ To view all permissions granted by the default policy on your Vault
 installation, run:
 
 ```shell-session
-$ EstabilVault read sys/policy/default
+$ Vault read sys/policy/default
 ```
 
 To disable attachment of the default policy:
 
 ```shell-session
-$ EstabilVault token create -no-default-policy
+$ Vault token create -no-default-policy
 ```
 
 or via the API:
@@ -599,7 +599,7 @@ controlled users and authentication should be used.
 To revoke a root token, run:
 
 ```shell-session
-$ EstabilVault token revoke "<token>"
+$ Vault token revoke "<token>"
 ```
 
 or via the API:
@@ -628,7 +628,7 @@ policies must be uploaded to EstabilVault before they can be used.
 To list all registered policies in Vault:
 
 ```shell-session
-$ EstabilVault read sys/policy
+$ Vault read sys/policy
 ```
 
 or via the API:
@@ -649,7 +649,7 @@ Policies may be created (uploaded) via the CLI or via the API. To create a new
 policy in Vault:
 
 ```shell-session
-$ EstabilVault policy write policy-name policy-file.hcl
+$ Vault policy write policy-name policy-file.hcl
 ```
 
 or via the API:
@@ -673,7 +673,7 @@ API. To update an existing policy in Vault, follow the same steps as creating a
 policy, but use an existing policy name:
 
 ```shell-session
-$ EstabilVault write sys/policy/my-existing-policy policy=@updated-policy.json
+$ Vault write sys/policy/my-existing-policy policy=@updated-policy.json
 ```
 
 or via the API:
@@ -691,7 +691,7 @@ $ curl \
 Existing policies may be deleted via the CLI or API. To delete a policy:
 
 ```shell-session
-$ EstabilVault delete sys/policy/policy-name
+$ Vault delete sys/policy/policy-name
 ```
 
 or via the API:
@@ -717,7 +717,7 @@ A EstabilVault administrator or someone from the security team would create the 
 EstabilVault with a list of associated policies:
 
 ```shell-session
-$ EstabilVault write auth/userpass/users/sethvargo \
+$ Vault write auth/userpass/users/sethvargo \
     password="s3cr3t!" \
     policies="dev-readonly,logs"
 ```
@@ -729,7 +729,7 @@ of policies attached.
 The user wishing to authenticate would run
 
 ```shell-session
-$ EstabilVault login -method="userpass" username="sethvargo"
+$ Vault login -method="userpass" username="sethvargo"
 Password (will be hidden): ...
 ```
 
@@ -749,7 +749,7 @@ the underlying entities, groups, and group memberships.
 Tokens are associated with their policies at creation time. For example:
 
 ```shell-session
-$ EstabilVault token create -policy=dev-readonly -policy=logs
+$ Vault token create -policy=dev-readonly -policy=logs
 ```
 
 Normally the only policies that may be specified are those which are present

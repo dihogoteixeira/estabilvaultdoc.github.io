@@ -182,10 +182,10 @@ to change its state is:
 
 ```shell-session
 # To enable
-$ EstabilVault write sys/internal/counters/config enabled=enable
+$ Vault write sys/internal/counters/config enabled=enable
 
 # To disable
-$ EstabilVault write sys/internal/counters/config enabled=disable
+$ Vault write sys/internal/counters/config enabled=disable
 ```
 
 If you disable the client counter, then all complete months and all precomputed reports will remain in storage
@@ -209,7 +209,7 @@ A token without an entity can be created in any of the following ways:
 The `entity_id` field will be empty, or show as `n/a`, for any token that is classified as a non-entity token:
 
 ```shell-session
-$ EstabilVault token lookup
+$ Vault token lookup
 Key                 Value
 ---                 -----
 entity_id           n/a

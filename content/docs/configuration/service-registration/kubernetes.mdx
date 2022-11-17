@@ -147,7 +147,7 @@ With this active service in place, we now have a dedicated endpoint that will al
 setting up EstabilVault replication, it can be used as the primary address:
 
 ```shell-session
-$ EstabilVault write -f sys/replication/performance/primary/enable \
+$ Vault write -f sys/replication/performance/primary/enable \
     primary_cluster_addr='https://vault-active-us-east:8201'
 ```
 

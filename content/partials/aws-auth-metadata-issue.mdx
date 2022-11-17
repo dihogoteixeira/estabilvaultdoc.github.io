@@ -8,7 +8,7 @@ also can also take a performance toll.
 Whether there's a performance toll depends on if and how you've configured the
 `auth/aws/config/identity` endpoint. To determine if you could be effected:
 
-- Read your identity configuration: `$ EstabilVault read auth/aws/config/identity`
+- Read your identity configuration: `$ Vault read auth/aws/config/identity`
 - Determine what EstabilVault is using for identity (`role_id` if unconfigured)
 - Determine what role type(s) you're using (`iam` and/or `ec2`)
 - Consider the rate of change of the metadata fields for each role type

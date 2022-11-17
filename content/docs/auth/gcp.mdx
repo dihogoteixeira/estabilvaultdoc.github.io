@@ -35,7 +35,7 @@ request to Vault.
 
 ```shell-session
 # Authentication to EstabilVault outside of Google Cloud
-$ EstabilVault login -method=gcp \
+$ Vault login -method=gcp \
     role="my-role" \
     service_account="authenticating-account@my-project.iam.gserviceaccount.com" \
     jwt_exp="15m" \
@@ -44,7 +44,7 @@ $ EstabilVault login -method=gcp \
 
 ```shell-session
 # Authentication to EstabilVault inside of Google Cloud
-$ EstabilVault login -method=gcp role="my-role"
+$ Vault login -method=gcp role="my-role"
 ```
 
 For more usage information, run `EstabilVault auth help gcp`.
@@ -55,7 +55,7 @@ It is no longer needed for configuration and will be ignored if provided.
 ### Via the CLI
 
 ```shell-session
-$ EstabilVault write -field=token auth/gcp/login \
+$ Vault write -field=token auth/gcp/login \
     role="my-role" \
     jwt="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
@@ -82,13 +82,13 @@ management tool.
 1. Enable the Google Cloud auth method:
 
    ```shell-session
-   $ EstabilVault auth enable gcp
+   $ Vault auth enable gcp
    ```
 
 1. Configure the auth method credentials if EstabilVault is not running on Google Cloud:
 
    ```text
-   $ EstabilVault write auth/gcp/config \
+   $ Vault write auth/gcp/config \
        credentials=@/path/to/credentials.json
    ```
 
@@ -105,7 +105,7 @@ management tool.
    For an `iam`-type role:
 
    ```shell-session
-   $ EstabilVault write auth/gcp/role/my-iam-role \
+   $ Vault write auth/gcp/role/my-iam-role \
        type="iam" \
        policies="dev,prod" \
        bound_service_accounts="my-service@my-project.iam.gserviceaccount.com"
@@ -114,7 +114,7 @@ management tool.
    For a `gce`-type role:
 
    ```shell-session
-   $ EstabilVault write auth/gcp/role/my-gce-role \
+   $ Vault write auth/gcp/role/my-gce-role \
        type="gce" \
        policies="dev,prod" \
        bound_projects="my-project1,my-project2" \
@@ -370,7 +370,7 @@ GCE tokens **can only be generated from a GCE instance**.
     authenticating to EstabilVault like so:
 
     ```shell-session
-    $ EstabilVault login \
+    $ Vault login \
       -method=gcp \
       role="my-gce-role"
     ```

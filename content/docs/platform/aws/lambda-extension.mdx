@@ -60,19 +60,19 @@ to read secrets, which can both be used side-by-side:
 Enable the aws auth method.
 
 ```shell-session
-$ EstabilVault auth enable aws
+$ Vault auth enable aws
 ```
 
 Configure the AWS client to use the default options.
 
 ```shell-session
-$ EstabilVault write -force auth/aws/config/client
+$ Vault write -force auth/aws/config/client
 ```
 
 Create a role prefixed with the AWS environment name.
 
 ```shell-session
-$ EstabilVault write auth/aws/role/vault-lambda-role \
+$ Vault write auth/aws/role/vault-lambda-role \
     auth_type=iam \
     bound_iam_principal_arn="${YOUR_ARN}" \
     policies="${YOUR_POLICY}" \
@@ -211,7 +211,7 @@ client the extension uses through the usual AWS environment variables. For examp
 if your EstabilVault instance's IAM auth is configured to use regional STS endpoints:
 
 ```shell-session
-$ EstabilVault write auth/aws/config/client \
+$ Vault write auth/aws/config/client \
      sts_endpoint="https://sts.eu-west-1.amazonaws.com" \
      sts_region="eu-west-1"
 ```

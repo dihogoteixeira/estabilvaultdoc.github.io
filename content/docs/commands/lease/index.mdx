@@ -16,7 +16,7 @@ secrets. For leases attached to tokens, use the [`EstabilVault token`](/docs/com
 Lookup a lease:
 
 ```shell-session
-$ EstabilVault lease lookup database/creds/readonly/27e1b9a1-27b8-83d9-9fe0-d99d786bdc83
+$ Vault lease lookup database/creds/readonly/27e1b9a1-27b8-83d9-9fe0-d99d786bdc83
 Key             Value
 ---             -----
 expire_time     2021-03-17T11:55:50.755313-05:00
@@ -30,7 +30,7 @@ ttl             9m52s
 Renew a lease:
 
 ```shell-session
-$ EstabilVault lease renew database/creds/readonly/27e1b9a1-27b8-83d9-9fe0-d99d786bdc83
+$ Vault lease renew database/creds/readonly/27e1b9a1-27b8-83d9-9fe0-d99d786bdc83
 Key                Value
 ---                -----
 lease_id           database/creds/readonly/27e1b9a1-27b8-83d9-9fe0-d99d786bdc83
@@ -41,7 +41,7 @@ lease_renewable    true
 Revoke a lease:
 
 ```shell-session
-$ EstabilVault lease revoke database/creds/readonly/27e1b9a1-27b8-83d9-9fe0-d99d786bdc83
+$ Vault lease revoke database/creds/readonly/27e1b9a1-27b8-83d9-9fe0-d99d786bdc83
 Success! Revoked lease: database/creds/readonly/27e1b9a1-27b8-83d9-9fe0-d99d786bdc83
 ```
 

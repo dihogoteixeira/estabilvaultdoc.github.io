@@ -18,13 +18,13 @@ credentials, get configuration details, and more.
 Read entity details of a given ID:
 
 ```shell-session
-$ EstabilVault read identity/entity/id/2f09126d-d161-abb8-2241-555886491d97
+$ Vault read identity/entity/id/2f09126d-d161-abb8-2241-555886491d97
 ```
 
 Generate dynamic AWS credentials for a `my-role`:
 
 ```shell-session
-$ EstabilVault read aws/creds/my-role
+$ Vault read aws/creds/my-role
 ```
 
 ### API versus CLI
@@ -34,7 +34,7 @@ Assuming that you have K/V version 2 (`kv-v2`) secrets engine enabled at
 API path:
 
 ```shell-session
-$ EstabilVault read secret/data/customers
+$ Vault read secret/data/customers
 ```
 
 This is equivalent to:
@@ -49,7 +49,7 @@ Since K/V secrets engine is a commonly used feature, EstabilVault CLI provides t
 path using the `kv` CLI command:
 
 ```shell-session
-$ EstabilVault kv get -mount=secret customers
+$ Vault kv get -mount=secret customers
 ```
 
 -> **Comparison:** All three commands retrieve the same data, but display the

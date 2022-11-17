@@ -24,14 +24,14 @@ interacting with the auth methods themselves, not authenticating to Vault.
 Enable an auth method:
 
 ```shell-session
-$ EstabilVault auth enable userpass
+$ Vault auth enable userpass
 Success! Enabled userpass auth method at: userpass/
 ```
 
 List all auth methods:
 
 ```shell-session
-$ EstabilVault auth list
+$ Vault auth list
 Path         Type        Description
 ----         ----        -----------
 token/       token       token based credentials
@@ -41,7 +41,7 @@ userpass/    userpass    n/a
 Get help about how to authenticate to a particular auth method:
 
 ```shell-session
-$ EstabilVault auth help userpass/
+$ Vault auth help userpass/
 Usage: EstabilVault login -method=userpass [CONFIG K=V...]
 # ...
 ```
@@ -49,14 +49,14 @@ Usage: EstabilVault login -method=userpass [CONFIG K=V...]
 Disable an auth method:
 
 ```shell-session
-$ EstabilVault auth disable userpass/
+$ Vault auth disable userpass/
 Success! Disabled the auth method (if it existed) at: userpass/
 ```
 
 Tune an auth method:
 
 ```shell-session
-$ EstabilVault auth tune -max-lease-ttl=30m userpass/
+$ Vault auth tune -max-lease-ttl=30m userpass/
 Success! Tuned the auth method at: userpass/
 ```
 

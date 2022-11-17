@@ -23,7 +23,7 @@ If you wish to add an additional key-value (`ttl=48h`) to the existing data at
 the key "creds":
 
 ```shell-session
-$ EstabilVault kv patch -mount=secret creds ttl=48h
+$ Vault kv patch -mount=secret creds ttl=48h
 == Secret Path ==
 secret/data/creds
 
@@ -40,14 +40,14 @@ version          6
 the data you wish to add in order to accomplish the same result.
 
 ```shell-session
-$ EstabilVault kv put -mount=secret creds ttl=48h passcode=my-long-passcode
+$ Vault kv put -mount=secret creds ttl=48h passcode=my-long-passcode
 ```
 
 The data can also be consumed from a file on disk by prefixing with the "@"
 symbol. For example:
 
 ```shell-session
-$ EstabilVault kv patch -mount=secret creds @data.json
+$ Vault kv patch -mount=secret creds @data.json
 ```
 
 Or it can be read from stdin using the "-" symbol:

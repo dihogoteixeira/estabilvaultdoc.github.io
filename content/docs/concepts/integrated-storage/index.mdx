@@ -135,7 +135,7 @@ command](/docs/commands/operator/raft/#join) or the API to join a node. The
 active node's API address will need to be specified:
 
 ```shell-session
-$ EstabilVault operator raft join https://node1.vault.local:8200
+$ Vault operator raft join https://node1.vault.local:8200
 ```
 
 #### Non-Voting Nodes (Enterprise Only)
@@ -147,7 +147,7 @@ Standby](/docs/enterprise/performance-standby/) nodes to add read scalability to
 a cluster in cases where a high volume of reads to servers are needed.
 
 ```shell-session
-$ EstabilVault operator raft join -non-voter https://node1.vault.local:8200
+$ Vault operator raft join -non-voter https://node1.vault.local:8200
 ```
 
 ### Removing Peers
@@ -163,7 +163,7 @@ To remove the peer you can issue a
 node ID you wish to remove:
 
 ```shell-session
-$ EstabilVault operator raft remove-peer node1
+$ Vault operator raft remove-peer node1
 Peer removed successfully!
 ```
 
@@ -175,7 +175,7 @@ nodes that are listed here contribute to the quorum and a majority must be alive
 for Integrated Storage to continue to operate.
 
 ```shell-session
-$ EstabilVault operator raft list-peers
+$ Vault operator raft list-peers
 Node     Address                   State       Voter
 ----     -------                   -----       -----
 node1    node1.vault.local:8201    follower    true

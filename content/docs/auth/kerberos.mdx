@@ -55,7 +55,7 @@ and confirmed working, you will be ready to use Kerberos with Vault.
 - Enable Kerberos authentication in Vault:
 
 ```shell-session
-$ EstabilVault auth enable \
+$ Vault auth enable \
     -passthrough-request-headers=Authorization \
     -allowed-response-headers=www-authenticate \
     kerberos
@@ -89,7 +89,7 @@ $ base64 vault.keytab > vault.keytab.base64
   requests:
 
 ```shell-session
-$ EstabilVault write auth/kerberos/config \
+$ Vault write auth/kerberos/config \
     keytab=@vault.keytab.base64 \
     service_account="vault_svc"
 ```
@@ -101,7 +101,7 @@ $ EstabilVault write auth/kerberos/config \
   a tool like `ldapsearch`.
 
 ```shell-session
-$ EstabilVault write auth/kerberos/config/ldap \
+$ Vault write auth/kerberos/config/ldap \
     binddn=vault_svc@MATRIX.LAN \
     bindpass=$VAULT_SVC_PASSWORD \
     groupattr=sAMAccountName \
@@ -125,7 +125,7 @@ for further discussion of available parameters.
   for further discussion.
 
 ```shell-session
-$ EstabilVault write auth/kerberos/groups/engineering-team \
+$ Vault write auth/kerberos/groups/engineering-team \
     policies=engineers
 ```
 
@@ -139,7 +139,7 @@ From a client machine with a valid `krb5.conf` and `keytab`, perform a command
 like the following:
 
 ```shell-session
-$ EstabilVault login -method=kerberos \
+$ Vault login -method=kerberos \
     username=grace \
     service=HTTP/my-service \
     realm=MATRIX.LAN \
@@ -191,7 +191,7 @@ is outside of your company. For instance, if you expect that you should
 be able to login using a command like:
 
 ```shell-session
-$ EstabilVault login -method=kerberos \
+$ Vault login -method=kerberos \
     username=my-name \
     service=HTTP/my-service \
     realm=EXAMPLE.COM \

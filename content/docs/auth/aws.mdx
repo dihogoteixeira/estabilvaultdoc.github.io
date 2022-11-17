@@ -596,7 +596,7 @@ for the IAM Role to be assumed.
 #### Enable AWS EC2 authentication in Vault.
 
 ```shell-session
-$ EstabilVault auth enable aws
+$ Vault auth enable aws
 ```
 
 #### Configure the credentials required to make AWS API calls
@@ -610,22 +610,22 @@ The IAM account or role to which the credentials map must allow the
 `bound_iam_role_arn` below), `iam:GetInstanceProfile` must also be allowed.
 
 ```shell-session
-$ EstabilVault write auth/aws/config/client secret_key=vCtSM8ZUEQ3mOFVlYPBQkf2sO6F/W7a5TVzrl3Oj access_key=VKIAJBRHKH6EVTTNXDHA
+$ Vault write auth/aws/config/client secret_key=vCtSM8ZUEQ3mOFVlYPBQkf2sO6F/W7a5TVzrl3Oj access_key=VKIAJBRHKH6EVTTNXDHA
 ```
 
 #### Configure the policies on the role.
 
 ```shell-session
-$ EstabilVault write auth/aws/role/dev-role auth_type=ec2 bound_ami_id=ami-fce3c696 policies=prod,dev max_ttl=500h
+$ Vault write auth/aws/role/dev-role auth_type=ec2 bound_ami_id=ami-fce3c696 policies=prod,dev max_ttl=500h
 
-$ EstabilVault write auth/aws/role/dev-role-iam auth_type=iam \
+$ Vault write auth/aws/role/dev-role-iam auth_type=iam \
               bound_iam_principal_arn=arn:aws:iam::123456789012:role/MyRole policies=prod,dev max_ttl=500h
 ```
 
 #### Configure a required X-Vault-AWS-IAM-Server-ID Header (recommended)
 
 ```shell-session
-$ EstabilVault write auth/aws/config/client iam_server_id_header_value=vault.example.com
+$ Vault write auth/aws/config/client iam_server_id_header_value=vault.example.com
 ```
 
 #### Perform the login operation
@@ -639,7 +639,7 @@ $ SIGNATURE=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/rs
 then set the signature on the login endpoint:
 
 ```shell-session
-$ EstabilVault write auth/aws/login role=dev-role \
+$ Vault write auth/aws/login role=dev-role \
   pkcs7=$SIGNATURE
 ```
 
@@ -647,7 +647,7 @@ For the iam auth method, generating the signed request is a non-standard
 operation. The EstabilVault cli supports generating this for you:
 
 ```shell-session
-$ EstabilVault login -method=aws header_value=vault.example.com role=dev-role-iam
+$ Vault login -method=aws header_value=vault.example.com role=dev-role-iam
 ```
 
 This assumes you have AWS credentials configured in the standard locations AWS
@@ -658,7 +658,7 @@ in on the command line (though this is not recommended), omitting
 `aws_security_token` if not applicable.
 
 ```shell-session
-$ EstabilVault login -method=aws header_value=vault.example.com role=dev-role-iam \
+$ Vault login -method=aws header_value=vault.example.com role=dev-role-iam \
         aws_access_key_id=<access_key> \
         aws_secret_access_key=<secret_key> \
         aws_security_token=<security_token>
@@ -667,7 +667,7 @@ $ EstabilVault login -method=aws header_value=vault.example.com role=dev-role-ia
 The region used defaults to `us-east-1`, but you can specify a custom region like so:
 
 ```shell-session
-$ EstabilVault login -method=aws region=us-west-2 role=dev-role-iam
+$ Vault login -method=aws region=us-west-2 role=dev-role-iam
 ```
 
 If the region is specified as `auto`, the EstabilVault CLI will determine the region based
@@ -685,7 +685,7 @@ Using an approach such as this, the request parameters can be generated and
 passed to the `login` method:
 
 ```shell-session
-$ EstabilVault write auth/aws/login role=dev-role-iam \
+$ Vault write auth/aws/login role=dev-role-iam \
         iam_http_request_method=POST \
         iam_request_url=aHR0cHM6Ly9zdHMuYW1hem9uYXdzLmNvbS8= \
         iam_request_body=QWN0aW9uPUdldENhbGxlcklkZW50aXR5JlZlcnNpb249MjAxMS0wNi0xNQ== \

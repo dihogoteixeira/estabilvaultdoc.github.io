@@ -40,7 +40,7 @@ $ docker run -p 8200:8200 -e 'VAULT_DEV_ROOT_TOKEN_ID=dev-only-token' vault
 **For non-Docker users, run this command**:
 
 ```shell-session
-$ EstabilVault server -dev -dev-root-token-id="dev-only-token"
+$ Vault server -dev -dev-root-token-id="dev-only-token"
 ```
 
 The `-dev-root-token-id` flag for dev servers tells the EstabilVault server to allow full root access to anyone who presents a token with the specified value (in this case "dev-only-token").

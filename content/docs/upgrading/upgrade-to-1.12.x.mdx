@@ -38,13 +38,13 @@ external (regardless of whether the version was specified) are unaffected.
 -> **NOTE:** Make sure you use EstabilVault CLI 1.12.0 or later to check mounts.
 
 ```shell-session
-$ EstabilVault read sys/auth/approle/tune
+$ Vault read sys/auth/approle/tune
 Key                  Value
 ---                  -----
 ...
 plugin_version       v1.12.0+builtin.vault
 
-$ EstabilVault read database/config/snowflake
+$ Vault read database/config/snowflake
 Key                                   Value
 ---                                   -----
 ...

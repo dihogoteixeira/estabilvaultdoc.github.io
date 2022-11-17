@@ -18,7 +18,7 @@ Before tuning the auth method configuration, view the current configuration of t
 auth method enabled at "github/".
 
 ```shell-session
-$ EstabilVault read sys/auth/github/tune
+$ Vault read sys/auth/github/tune
 Key                  Value
 ---                  -----
 default_lease_ttl    768h
@@ -32,14 +32,14 @@ The default lease for the auth method enabled at "github/" is currently set to
 768 hours. Tune this value to 72 hours.
 
 ```shell-session
-$ EstabilVault auth tune -default-lease-ttl=72h github/
+$ Vault auth tune -default-lease-ttl=72h github/
 Success! Tuned the auth method at: github/
 ```
 
 You can specify multiple audit non-hmac request keys.
 
 ```shell-session
-$ EstabilVault auth tune -audit-non-hmac-request-keys=value1 -audit-non-hmac-request-keys=value2 github/
+$ Vault auth tune -audit-non-hmac-request-keys=value1 -audit-non-hmac-request-keys=value2 github/
 Success! Tuned the auth method at: github/
 ```
 

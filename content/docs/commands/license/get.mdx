@@ -16,7 +16,7 @@ is stored, as opposed to [autoloaded](/docs/enterprise/license/autoloading).
 Describe current license:
 
 ```shell-session
-$ EstabilVault license get
+$ Vault license get
 Key                          Value
 ---                          -----
 expiration_time              2022-05-17T23:59:59Z
@@ -30,14 +30,14 @@ termination_time             2031-05-17T23:59:59Z
 Get stored license string:
 
 ```shell-session
-$ EstabilVault license get -signed
+$ Vault license get -signed
 02MV4UU43BK5H...
 ```
 
 Try to get stored license string when using autoloading:
 
 ```shell-session
-$ EstabilVault license get -signed
+$ Vault license get -signed
 License not found or using a temporary license.
 ```
 

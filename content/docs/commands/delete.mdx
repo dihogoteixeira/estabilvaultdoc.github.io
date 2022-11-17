@@ -18,13 +18,13 @@ the backend corresponding to the given path.
 Remove data in the static secrets engine:
 
 ```shell-session
-$ EstabilVault delete secret/my-secret
+$ Vault delete secret/my-secret
 ```
 
 Uninstall an encryption key in the transit backend:
 
 ```shell-session
-$ EstabilVault delete transit/keys/my-key
+$ Vault delete transit/keys/my-key
 ```
 
 Note: changing the `deletion_allowed` parameter to `true` is necessary for the
@@ -33,7 +33,7 @@ key to be successfully deleted, you can read more on key parameters [here](/api-
 Delete an IAM role:
 
 ```shell-session
-$ EstabilVault delete aws/roles/ops
+$ Vault delete aws/roles/ops
 ```
 
 ## Usage

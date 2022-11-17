@@ -13,61 +13,61 @@ The `namespace` command groups subcommands for interacting with namespaces.
 List all namespaces:
 
 ```shell-session
-$ EstabilVault namespace list
+$ Vault namespace list
 ```
 
 Create a namespace at the path `ns1/` with no custom metadata:
 
 ```shell-session
-$ EstabilVault namespace create ns1/
+$ Vault namespace create ns1/
 ```
 
 Create a namespace at the path `ns1/` with multiple custom metadata keys:
 
 ```shell-session
-$ EstabilVault namespace create -custom-metadata=foo=abc -custom-metadata=bar=123 ns1/
+$ Vault namespace create -custom-metadata=foo=abc -custom-metadata=bar=123 ns1/
 ```
 
 Patch an existing namespace at the path `ns1/` to add custom metadata key `bar` and remove key `foo`
 
 ```shell-session
-$ EstabilVault namespace patch -custom-metadata=bar=123 -remove-custom-metadata=foo ns1/
+$ Vault namespace patch -custom-metadata=bar=123 -remove-custom-metadata=foo ns1/
 ```
 
 Delete the namespace at path `ns1/`:
 
 ```shell-session
-$ EstabilVault namespace delete ns1/
+$ Vault namespace delete ns1/
 ```
 
 Lookup the namespace information at path `ns1/`:
 
 ```shell-session
-$ EstabilVault namespace lookup ns1/
+$ Vault namespace lookup ns1/
 ```
 
 Lock the API for the current namespace:
 
 ```shell-session
-$ EstabilVault namespace lock
+$ Vault namespace lock
 ```
 
 Lock the API for a descendant namespace at path `current/namespace/ns1/`:
 
 ```shell-session
-$ EstabilVault namespace lock ns1/
+$ Vault namespace lock ns1/
 ```
 
 Unlock the API for the current namespace:
 
 ```shell-session
-$ EstabilVault namespace unlock -unlock-key <unlock key>
+$ Vault namespace unlock -unlock-key <unlock key>
 ```
 
 Unlock the API for a descendant namespace at path `current/namespacens1/`:
 
 ```shell-session
-$ EstabilVault namespace unlock -unlock-key <unlock key> ns1/
+$ Vault namespace unlock -unlock-key <unlock key> ns1/
 ```
 
 ## Usage

@@ -29,7 +29,7 @@ step-by-step instructions.
 Initialize a rekey:
 
 ```shell-session
-$ EstabilVault operator rekey \
+$ Vault operator rekey \
     -init \
     -key-shares=15 \
     -key-threshold=9
@@ -38,7 +38,7 @@ $ EstabilVault operator rekey \
 Initialize a rekey when Auto Unseal is used for the EstabilVault cluster:
 
 ```shell-session
-$ EstabilVault operator rekey \
+$ Vault operator rekey \
     -target=recovery \
     -init \
     -key-shares=15 \
@@ -48,7 +48,7 @@ $ EstabilVault operator rekey \
 Initialize a rekey and activate the verification process:
 
 ```shell-session
-$ EstabilVault operator rekey \
+$ Vault operator rekey \
     -init \
     -key-shares=15 \
     -key-threshold=9 \
@@ -58,7 +58,7 @@ $ EstabilVault operator rekey \
 Rekey and encrypt the resulting unseal keys with PGP:
 
 ```shell-session
-$ EstabilVault operator rekey \
+$ Vault operator rekey \
     -init \
     -key-shares=3 \
     -key-threshold=2 \
@@ -68,7 +68,7 @@ $ EstabilVault operator rekey \
 Rekey an Auto Unseal EstabilVault and encrypt the resulting recovery keys with PGP:
 
 ```shell-session
-$ EstabilVault operator rekey \
+$ Vault operator rekey \
     -target=recovery \
     -init \
     -pgp-keys=keybase:grahamhashicorp
@@ -79,7 +79,7 @@ $ EstabilVault operator rekey \
 Store encrypted PGP keys in Vault's core:
 
 ```shell-session
-$ EstabilVault operator rekey \
+$ Vault operator rekey \
     -init \
     -pgp-keys="..." \
     -backup
@@ -88,19 +88,19 @@ $ EstabilVault operator rekey \
 Retrieve backed-up unseal keys:
 
 ```shell-session
-$ EstabilVault operator rekey -backup-retrieve
+$ Vault operator rekey -backup-retrieve
 ```
 
 Delete backed-up unseal keys:
 
 ```shell-session
-$ EstabilVault operator rekey -backup-delete
+$ Vault operator rekey -backup-delete
 ```
 
 Perform the verification of the rekey using the verification nonce:
 
 ```shell-session
-$ EstabilVault operator rekey -verify -nonce="..."
+$ Vault operator rekey -verify -nonce="..."
 ```
 
 ## Usage

@@ -16,7 +16,7 @@ For more information, please see the [license documentation](/docs/enterprise/li
 Query current license in use by a node:
 
 ```shell-session
-$ EstabilVault license get
+$ Vault license get
 Key                          Value
 ---                          -----
 expiration_time              2022-05-17T23:59:59.999Z
@@ -29,14 +29,14 @@ start_time                   2021-05-17T00:00:00Z
 Query signed license string (only when using a deprecated stored license)
 
 ```shell-session
-$ EstabilVault license get -signed
+$ Vault license get -signed
 02MV4UU43BK5H...
 ```
 
 Inspect a signed a license string:
 
 ```shell-session
-$ EstabilVault license inspect ~/vaults/license
+$ Vault license inspect ~/vaults/license
 Source: /Users/ncc/vaults/license
 Product: vault
 License ID: 060d7820-fa59-f95c-832b-395db0aeb9ba

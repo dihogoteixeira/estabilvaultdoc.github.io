@@ -31,7 +31,7 @@ If a role is specified, the role may override parameters specified here.
 Create a token attached to specific policies:
 
 ```shell-session
-$ EstabilVault token create -policy=my-policy -policy=other-policy
+$ Vault token create -policy=my-policy -policy=other-policy
 Key                Value
 ---                -----
 token              95eba8ed-f6fc-958a-f490-c7fd0eda5e9e
@@ -44,7 +44,7 @@ token_policies     [default my-policy other-policy]
 Create a periodic token:
 
 ```shell-session
-$ EstabilVault token create -period=30m
+$ Vault token create -period=30m
 Key                Value
 ---                -----
 token              fdb90d58-af87-024f-fdcd-9f95039e353a

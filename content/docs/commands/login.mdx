@@ -38,7 +38,7 @@ the returned token is automatically unwrapped unless:
 By default, login uses a "token" method and reads from stdin:
 
 ```shell-session
-$ EstabilVault login
+$ Vault login
 Token (will be hidden):
 Success! You are now authenticated. The token information displayed below
 is already stored in the token helper. You do NOT need to run "EstabilVault login"
@@ -59,7 +59,7 @@ Alternatively, the token may be provided as a command line argument (note that
 this may be captured by shell history or process listings):
 
 ```shell-session
-$ EstabilVault login s.3jnbMAKl1i4YS3QoKdbHzGXq
+$ Vault login s.3jnbMAKl1i4YS3QoKdbHzGXq
 Success! You are now authenticated. The token information displayed below
 is already stored in the token helper. You do NOT need to run "EstabilVault login"
 again. Future EstabilVault requests will automatically use this token.
@@ -78,7 +78,7 @@ policies             ["admin" "default"]
 To login with a different method, use `-method`:
 
 ```shell-session
-$ EstabilVault login -method=userpass username=my-username
+$ Vault login -method=userpass username=my-username
 Password (will be hidden):
 Success! You are now authenticated. The token information below is already
 stored in the token helper. You do NOT need to run "EstabilVault login" again. Future
@@ -102,7 +102,7 @@ argument (`username=my-username`).
 If a github auth method was enabled at the path "github-prod":
 
 ```shell-session
-$ EstabilVault login -method=github -path=github-prod
+$ Vault login -method=github -path=github-prod
 Success! You are now authenticated. The token information below is already
 stored in the token helper. You do NOT need to run "EstabilVault login" again. Future
 requests will use this token automatically.

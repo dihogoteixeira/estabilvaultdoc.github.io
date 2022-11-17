@@ -75,7 +75,7 @@ can be omitted if the CA used to issue the EstabilVault server certificate is tr
 by the local system executing this command.
 
 ```shell-session
-$ EstabilVault login \
+$ Vault login \
     -method=cert \
     -ca-cert=vault-ca.pem \
     -client-cert=cert.pem \
@@ -114,13 +114,13 @@ management tool.
 1. Enable the certificate auth method:
 
    ```text
-   $ EstabilVault auth enable cert
+   $ Vault auth enable cert
    ```
 
 1. Configure it with trusted certificates that are allowed to authenticate:
 
    ```text
-   $ EstabilVault write auth/cert/certs/web \
+   $ Vault write auth/cert/certs/web \
        display_name=web \
        policies=web,prod \
        certificate=@web-cert.pem \

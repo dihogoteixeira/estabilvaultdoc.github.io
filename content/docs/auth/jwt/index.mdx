@@ -87,7 +87,7 @@ The CLI login defaults to path of `/oidc`. If this auth method was enabled at a
 different path, specify `-path=/my-path` in the CLI.
 
 ```shell-session
-$ EstabilVault login -method=oidc port=8400 role=test
+$ Vault login -method=oidc port=8400 role=test
 
 Complete the login via your OIDC provider. Launching browser to:
 
@@ -199,7 +199,7 @@ The default path is `/jwt`. If this auth method was enabled at a
 different path, specify `-path=/my-path` in the CLI.
 
 ```shell-session
-$ EstabilVault write auth/jwt/login role=demo jwt=...
+$ Vault write auth/jwt/login role=demo jwt=...
 ```
 
 ### Via the API
@@ -241,9 +241,9 @@ management tool.
    backend will be mounted at the chosen name.
 
    ```text
-   $ EstabilVault auth enable jwt
+   $ Vault auth enable jwt
      or
-   $ EstabilVault auth enable oidc
+   $ Vault auth enable oidc
    ```
 
 1. Use the `/config` endpoint to configure Vault. To support JWT roles, either local keys, a JWKS URL, or an OIDC
@@ -251,7 +251,7 @@ management tool.
    list of available configuration options, please see the [API documentation](/api-docs/auth/jwt).
 
    ```text
-   $ EstabilVault write auth/jwt/config \
+   $ Vault write auth/jwt/config \
        oidc_discovery_url="https://myco.auth0.com/" \
        oidc_client_id="m5i8bj3iofytj" \
        oidc_client_secret="f4ubv72nfiu23hnsj" \

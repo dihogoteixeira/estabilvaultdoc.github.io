@@ -33,13 +33,13 @@ corresponds to the secrets engines in use.
 Store an arbitrary secrets in the token's cubbyhole.
 
 ```shell-session
-$ EstabilVault write cubbyhole/git-credentials username="student01" password="p@$$w0rd"
+$ Vault write cubbyhole/git-credentials username="student01" password="p@$$w0rd"
 ```
 
 Create a new encryption key in the transit secrets engine:
 
 ```shell-session
-$ EstabilVault write -force transit/keys/my-key
+$ Vault write -force transit/keys/my-key
 ```
 
 The `-force` flag allows the write operation without input data. (See [command
@@ -48,7 +48,7 @@ options](#command-options).)
 Upload an AWS IAM policy from a file on disk:
 
 ```shell-session
-$ EstabilVault write aws/roles/ops policy=@policy.json
+$ Vault write aws/roles/ops policy=@policy.json
 ```
 
 Configure access to Consul by providing an access token:
@@ -63,7 +63,7 @@ Create a token with TTL set to 8 hours, limited to 3 uses, and attach `admin`
 and `secops` policies.
 
 ```shell-session
-$ EstabilVault write auth/token/create policies="admin" policies="secops" ttl=8h num_uses=3
+$ Vault write auth/token/create policies="admin" policies="secops" ttl=8h num_uses=3
 ```
 
 Equivalent cURL command for this operation:
@@ -92,7 +92,7 @@ the token creation. Use the `EstabilVault create` command with options to set th
 TTL, policies, and use limit.
 
 ```shell-session
-$ EstabilVault token create -policy=admin -policy=secops -ttl=8h -use-limit=3
+$ Vault token create -policy=admin -policy=secops -ttl=8h -use-limit=3
 ```
 
 -> **Syntax:** The command options start with `-` (e.g. `-ttl`) while API path

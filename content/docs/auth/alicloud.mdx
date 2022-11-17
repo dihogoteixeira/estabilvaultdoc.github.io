@@ -66,19 +66,19 @@ token accordingly.
 #### Enable AliCloud authentication in Vault.
 
 ```shell-session
-$ EstabilVault auth enable alicloud
+$ Vault auth enable alicloud
 ```
 
 #### Configure the policies on the role.
 
 ```shell-session
-$ EstabilVault write auth/alicloud/role/dev-role arn='acs:ram::5138828231865461:role/dev-role'
+$ Vault write auth/alicloud/role/dev-role arn='acs:ram::5138828231865461:role/dev-role'
 ```
 
 #### Perform the login operation
 
 ```shell-session
-$ EstabilVault write auth/alicloud/login \
+$ Vault write auth/alicloud/login \
         role=dev-role \
         identity_request_url=$IDENTITY_REQUEST_URL_BASE_64 \
         identity_request_headers=$IDENTITY_REQUEST_HEADERS_BASE_64
@@ -88,7 +88,7 @@ For the RAM auth method, generating the signed request is a non-standard
 operation. The EstabilVault CLI supports generating this for you:
 
 ```shell-session
-$ EstabilVault login -method=alicloud access_key=... secret_key=... security_token=... region=...
+$ Vault login -method=alicloud access_key=... secret_key=... security_token=... region=...
 ```
 
 This assumes you have the AliCloud credentials you would find on an ECS instance using the
