@@ -12,8 +12,12 @@ includes_dir        : _includes
 sass:
   sass_dir: _sass
 collections:
+  pages:
+    output: true
+    permalink: /:name
   posts:
     output          : true
+
 
 # Handling Reading
 safe                : false
@@ -32,7 +36,10 @@ unpublished         : false
 
 # Plugins
 whitelist           : []
-plugins             : []
+plugins:
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-feed
 
 # Conversion
 markdown            : kramdown
