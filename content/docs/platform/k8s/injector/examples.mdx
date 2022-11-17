@@ -203,7 +203,7 @@ data:
     "pid_file" = "/home/vault/.pid"
 
     "template" = {
-      "contents" = "{{- with secret \"database/creds/db-app\" -}}postgres://{{ .Data.username }}:{{ .Data.password }}@postgres:5432/mydb?sslmode=disable{{- end }}"
+      "contents" = `{{- with secret \"database/creds/db-app\" -}}postgres://{{ .Data.username }}:{{ .Data.password }}@postgres:5432/mydb?sslmode=disable{{- end }}`
       "destination" = "/vault/secrets/db-creds"
     }
 
