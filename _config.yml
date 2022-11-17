@@ -22,7 +22,7 @@ exclude             : ["Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle
 keep_files          : [".git", ".svn"]
 encoding            : "utf-8"
 markdown_ext        : "markdown,mkdown,mkdn,mkd,md"
-strict_front_matter : false
+strict_front_matter : true
 
 # Filtering Content
 show_drafts         : null
@@ -59,9 +59,10 @@ verbose             : true
 defaults            : []
 
 liquid:
-  error_mode        : warn
+  error_mode        : strict
   strict_filters    : false
   strict_variables  : false
+
 
 # Markdown Processors
 kramdown:
